@@ -3,6 +3,7 @@ class CreateChinaRegionTables < ActiveRecord::Migration
     unless table_exists? 'provinces'
       create_table :provinces do |t|
         t.string :name
+        t.string :fullname
         t.string :pinyin
         t.string :pinyin_abbr
         t.timestamps
@@ -16,6 +17,7 @@ class CreateChinaRegionTables < ActiveRecord::Migration
     unless table_exists? 'cities'
       create_table :cities do |t|
         t.string :name
+        t.string :fullname
         t.integer :province_id
         t.integer :level
         t.string :zip_code
@@ -34,6 +36,7 @@ class CreateChinaRegionTables < ActiveRecord::Migration
     unless table_exists? 'districts'
       create_table :districts do |t|
         t.string :name
+        t.string :fullname
         t.integer :city_id
         t.string :pinyin
         t.string :pinyin_abbr
